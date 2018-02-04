@@ -25,8 +25,9 @@
         <% question_response.question.question_choices.each do |question_choice| %>
           <tr>
             <td>
+              <%# binding.pry %>
               <% if question_choice == question_response.question_choice %>
-                <strong>
+                <strong class="text-<%= question_choice.score < 0 ? 'danger' : 'success' %>" >
                   <%= question_choice.text %>
                 </strong>
               <% else %>
