@@ -8,11 +8,20 @@
       </div>
 
       <div class="panel-body">
+        
         Completed
         <%= @response.question_responses_count %>
         of
         <%= Question.count %>
         questions
+        <hr>
+        <% @response.creative_scores.each do |creative_score| %>
+          <h3><%= creative_score[:name] %></h3>
+          <ul>
+            <li>Raw Score: <%= creative_score[:raw] %></li>
+            <li>Max Score: <%= creative_score[:max] %></li>
+          </ul>
+        <% end %>
       </div>
     </div>
 
@@ -25,7 +34,7 @@
         <% question_response.question.question_choices.each do |question_choice| %>
           <tr>
             <td>
-              <%# binding.pry %>
+              
               <% if question_choice == question_response.question_choice %>
                 <strong class="text-<%= question_choice.score < 0 ? 'danger' : 'success' %>" >
                   <%= question_choice.text %>

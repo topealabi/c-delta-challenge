@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170215015037) do
     t.string   "color"
     t.text     "description"
     t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "updated_at",  null: false 
   end
 
   create_table "question_choices", force: :cascade do |t|
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20170215015037) do
     t.index ["creative_quality_id"], name: "index_question_choices_on_creative_quality_id"
     t.index ["question_id"], name: "index_question_choices_on_question_id"
   end
-
+ 
   create_table "question_responses", force: :cascade do |t|
     t.integer  "question_choice_id"
     t.integer  "response_id"

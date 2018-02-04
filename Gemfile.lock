@@ -54,6 +54,7 @@ GEM
       railties (>= 3.1)
     builder (3.2.3)
     byebug (9.0.6)
+    choice (0.2.0)
     coderay (1.1.1)
     concurrent-ruby (1.0.4)
     connection_pool (2.2.1)
@@ -123,6 +124,11 @@ GEM
     rails-dom-testing (2.0.2)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6)
+    rails-erd (1.5.2)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
     railties (5.0.1)
@@ -166,6 +172,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
+    ruby-graphviz (1.2.3)
     ruby-progressbar (1.9.0)
     sass (3.4.23)
     sass-rails (5.0.6)
@@ -226,6 +233,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.0)
   rails (~> 5.0.1)
+  rails-erd
   react-rails
   rspec-rails
   rubocop (~> 0.52.0)
@@ -239,4 +247,4 @@ DEPENDENCIES
   webpacker (~> 3.0)
 
 BUNDLED WITH
-   1.16.0
+   1.16.1

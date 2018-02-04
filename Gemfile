@@ -38,4 +38,5 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
 end
 
+gem 'rails-erd', require: false, group: :development
 
