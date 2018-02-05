@@ -45,4 +45,22 @@ class Response < ApplicationRecord
     end
     return scores_array
   end
+
+  def scores(creative_quality) 
+    raw_score = 0
+    max_score = 0
+    self.question_choices.where(creative_quality_id: CreativeQuality.find_by_name(creative_quality)).each do |p|
+      raw_score += p.score
+    end
+
+    self.question_choices.where(creative_quality_id: CreativeQuality.find_by_name(creative_quality)).each do |p|
+      temp_max = []
+      p.question.question_choices.each do |s|
+        temp_max.push(s.score)
+      end
+      max_score += temp_max.max
+
+    end
+    return {raw: raw_score, max: max_score}
+  end
 end
