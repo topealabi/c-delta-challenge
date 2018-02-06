@@ -7,34 +7,47 @@
 </script>
 
 <!-- This is the template that you should modify to use Angular instead of Rails -->
-<div class="row">
-  <div class="col-md-12">
-    <h2>
+<div class="row" ng-app="c-delta.modules" >
+  <div class="col-md-12" ng-controller="CreativeQualitiesController" >
+     <div class="btn-group pull-right" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-secondary" ng-click="sorta ='score' ">Sort by score</button>
+      <button type="button" class="btn btn-secondary" ng-click="sorta ='name' ">Sort by name</button>
+      
+    </div>
+     <h2>
       Creative Qualities
     </h2>
-
-    <div class="row">
-      <%= @creative_qualities.find_each do |creative_quality| %>
-        <div class="col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <%= creative_quality.name %>
+    
+    <div class="row" >
+      
+        <div class="col-md-4" ng-repeat="x in creativeQualities | orderBy: sorta ">
+          <div class="panel panel-default" style="border-color: {{x.color}}">
+            <div class="panel-heading text-center" style="border-color: {{x.color}}; background-color: {{x.color}}; color:white;">
+              {{x.name}}
             </div>
 
-            <div class="panel-body">
-              <p>
-                <%= creative_quality.description %>
+            <div class="panel-body " style="border: 2px solid {{x.color}}" >
+              <div class="text-center">
+                <img class="quality-img img-responsive" src="/assets/qualityIcons/{{x.name.toLowerCase()}}.png" alt="Collaboration" >
+                <p><b>your score:</b></p>
+                <h1>{{x.normalized_score}}</h1>
+                <div class="clearfix">
+                  <div class="progress" style="float:{{x.normalized_score >= 0 ? 'right': 'left';}}">
+                  <div class="progress-bar bg-success"  role="progressbar" style="width: {{x.normalized_score | makePositive}}%; background-color: {{x.color}}; float:{{x.normalized_score >= 0 ? 'left': 'right';}} " aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                </div>
+                
+              </div>
+              
+              <p >
+                <show-more text="x.description"> </show-more>
               </p>
-
               <hr>
-
-              <p>
-                <strong>Your Score: <%= creative_quality.normalized_score %></strong>
-              </p>
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
+      
+    </div> 
   </div>
 </div>
+

@@ -3,3 +3,11 @@
 @import "bootstrap";
 @import "rails_bootstrap_forms";
 @import "bootswatch/flatly/bootswatch";
+
+
+.quality-img {margin: 0 auto; width:50%}
+.btn-secondary {border: 1px solid rgb(204, 204, 204);border-radius: 5px;}
+.btn-secondary:hover {color: black; background-color: rgba(204, 204, 204, .5);}
+.progress{     width: 50%;
+    background: none;
+    border-radius: 0;} 
